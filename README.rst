@@ -48,10 +48,32 @@ by doing ::
 If you are a Microsoft Windows user and need to install Suricata, you can use the MSI available on `Suricata download page <https://suricata.io/download/>`_.
 For Python, the installer from Python website available on their `Download page <https://www.python.org/downloads/windows/>`_ is working well.
 
+
+How to run app and the Unit Test
+--------------------------------
+
+Unit test syntax : python3 -m unittest ./suricatals/unit_tests.py 
+./venv/bin/suricata-language-server --suricata-binary /usr/bin/suricata --suricata-config /etc/suricata/suricata.yaml --batch-file ./tests/custom.rules 
+
+If you wanted to disable engine analysis, you would need to run:
+./venv/bin/suricata-language-server --no-engine-analysis --suricata-binary /usr/bin/suricata --suricata-config /etc/suricata/suricata.yaml --batch-file ./tests/custom.rules
+
+code behind the scene
+--------------------------------
+suri_cmd = [self.suricata_binary, '-T', '-l', tmpdir, '-S', rule_file, '-c', config_file]
+
+
 Manual Installation
 -------------------
+After cloning the repository, create a venv : 
 
-After cloning the repository, you need to install first the server by running in the root directory of the project ::
+* --python3 -m venv venv  
+* --source ./venv/bin/activate  
+* --pip install . 
+* --check on ./venv/bin to find out suricata-language-server  
+* -- sudo cp venv/bin/suricata-language-server /usr/local/bin/  
+
+you need to install first the server by running in the root directory of the project ::
 
  pip install .
 
