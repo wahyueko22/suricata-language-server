@@ -71,7 +71,7 @@ After cloning the repository, create a venv :
 * --source ./venv/bin/activate  
 * --pip install . 
 * --check on ./venv/bin to find out suricata-language-server  
-* -- sudo cp venv/bin/suricata-language-server /usr/local/bin/  
+* -- sudo cp ./venv/bin/suricata-language-server /usr/local/bin/  
 
 you need to install first the server by running in the root directory of the project ::
 
